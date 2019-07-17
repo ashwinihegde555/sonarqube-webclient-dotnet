@@ -34,6 +34,8 @@ namespace SonarQube.Client
 
         bool HasOrganizationsFeature { get; }
 
+        bool IsSonarCloud { get; }
+
         bool IsConnected { get; }
 
         Task ConnectAsync(ConnectionInformation connection, CancellationToken token);

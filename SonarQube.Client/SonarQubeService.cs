@@ -57,6 +57,18 @@ namespace SonarQube.Client
             }
         }
 
+        public bool IsSonarCloud
+        {
+            get
+            {
+                EnsureIsConnected();
+
+                var url = httpClient.BaseAddress.ToString();
+
+                return url.StartsWith("https://sonarcloud.io/", StringComparison.OrdinalIgnoreCase);
+            }
+        }
+
         public bool IsConnected { get; private set; }
 
         public SonarQubeService(HttpMessageHandler messageHandler, string userAgent, ILogger logger)
